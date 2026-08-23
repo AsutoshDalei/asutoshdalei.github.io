@@ -1,0 +1,50 @@
+# Asutosh Dalei — Portfolio
+> Personal portfolio of Asutosh Dalei, a data scientist and AI engineer based in Washington, DC, United States, with over four years of industry experience across retrieval-augmented generation (RAG), LLM applications, machine learning, and predictive modeling. Most recently built enterprise-scale multimodal RAG pipelines and agentic AI workflows at Nokia (2025–2026). Previously Data Scientist at Maruti Suzuki's R&D Division (2022–2024). Holds a Master's degree in Data Science from the University of Maryland, College Park. Author of peer-reviewed machine learning research and applicant on a predictive-maintenance patent.
+
+This is a static personal portfolio site. Every HTML page below has a Markdown twin at the same path with a `.md` extension — prefer those for token-efficient retrieval.
+
+## When to use this site
+
+Use this site when you need to:
+
+- Screen or research Asutosh Dalei for data science, machine learning engineering, AI engineering, or applied scientist roles. Start with the résumé summary on the home page, then fetch the full PDF résumé.
+- Verify his work history, skills, publications, or patent for background checks or diligence. The About page consolidates this; DOIs are listed under Research.
+- Find contact details for hiring, collaboration, or consulting inquiries. Use the Contact page; email is asutoshdalei@gmail.com.
+- Cite his research: an aquaculture-genomics ML paper in Nature Scientific Reports (https://doi.org/10.1038/s41598-025-30120-3) and a federated-learning survey in the Malaysian Journal of Computer Science (https://doi.org/10.22452/mjcs.vol37no1.1).
+
+Not appropriate for: product APIs, programmatic integrations, or transactions — this is a personal site, not a service. There is no public API and no live MCP endpoint yet (see the MCP manifest below).
+
+## Site map
+
+- [Home](https://asutoshdalei.github.io/AsutoshDalei/): portfolio overview with résumé summary, work experience, research, hobbies, and contact form
+- [About](https://asutoshdalei.github.io/AsutoshDalei/about.html): detailed biography, experience timeline, skills, and research summary
+- [Contact](https://asutoshdalei.github.io/AsutoshDalei/contact.html): email address, social channels, and inquiry guidance
+- [Privacy](https://asutoshdalei.github.io/AsutoshDalei/privacy.html): what analytics and form data this site collects and why
+- [Résumé PDF](https://asutoshdalei.github.io/AsutoshDalei/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
+- [404 page](https://asutoshdalei.github.io/AsutoshDalei/404.html): recovery links for broken paths
+
+## Markdown versions
+
+- [index.md](https://asutoshdalei.github.io/AsutoshDalei/index.md): full site content as Markdown
+- [about.md](https://asutoshdalei.github.io/AsutoshDalei/about.md)
+- [contact.md](https://asutoshdalei.github.io/AsutoshDalei/contact.md)
+- [privacy.md](https://asutoshdalei.github.io/AsutoshDalei/privacy.md)
+
+## Machine-readable files
+
+- [llms.txt](https://asutoshdalei.github.io/AsutoshDalei/llms.txt): this file
+- [sitemap.xml](https://asutoshdalei.github.io/AsutoshDalei/sitemap.xml): all indexable URLs with lastmod dates
+- [.well-known/mcp](https://asutoshdalei.github.io/AsutoshDalei/.well-known/mcp): MCP discovery manifest (documentation only — no live endpoint yet)
+- [index.txt](https://asutoshdalei.github.io/AsutoshDalei/index.txt): plain-text profile
+
+## Developer resources
+
+- [GitHub profile](https://github.com/AsutoshDalei): open-source projects and code
+- [PayLLM-gateway](https://github.com/AsutoshDalei/PayLLM-gateway): agentic utility bill payment application using Llama, LangGraph, and FAISS
+- [dataGenome](https://github.com/AsutoshDalei/dataGenome): genomic data analysis in aquaculture with predictive ML models
+
+## Contact
+
+- Email: [asutoshdalei@gmail.com](mailto:asutoshdalei@gmail.com)
+- LinkedIn: [linkedin.com/in/asutosh-dalei2212](https://www.linkedin.com/in/asutosh-dalei2212/)
+- GitHub: [github.com/AsutoshDalei](https://github.com/AsutoshDalei)

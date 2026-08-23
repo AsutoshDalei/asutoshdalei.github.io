@@ -1,0 +1,66 @@
+# Deploy static site to GitHub Pages (Node 24–compatible actions)
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Inject OpenRouter API key into chat script
+        if: false  # disabled — chat feature paused for API key security
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "Missing required GitHub secret: OPENROUTER_API_KEY"
+            exit 1
+          fi
+
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          chat_path = Path("assets/js/chat.js")
+          placeholder = "__OPENROUTER_API_KEY__"
+          key = os.environ["OPENROUTER_API_KEY"]
+
+          content = chat_path.read_text()
+          if placeholder not in content:
+            raise SystemExit(f"Placeholder {placeholder} not found in {chat_path}")
+
+          chat_path.write_text(content.replace(placeholder, key, 1))
+          print(f"Injected OpenRouter key into {chat_path}")
+          PY
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

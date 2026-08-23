@@ -1,0 +1,21 @@
+{
+  "mcp_version": "1.0",
+  "server_name": "Asutosh Dalei Portfolio",
+  "server_version": "1.0.0",
+  "endpoints": {},
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false,
+    "sampling": false,
+    "roots": false
+  },
+  "authentication": {
+    "required": false
+  },
+  "security": {
+    "tls_required": true,
+    "security_contact": "mailto:asutoshdalei@gmail.com"
+  },
+  "documentation": "https://asutoshdalei.github.io/AsutoshDalei/llms.txt"
+}

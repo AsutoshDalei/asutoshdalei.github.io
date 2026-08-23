@@ -1,0 +1,38 @@
+# Machine-readable entry points for this site:
+#   llms.txt    - agent-oriented site guide (https://asutoshdalei.github.io/AsutoshDalei/llms.txt)
+#   sitemap.xml - indexable URLs
+User-agent: *
+Allow: /
+
+# Explicitly welcomed AI/agent crawlers (no restrictions)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://asutoshdalei.github.io/AsutoshDalei/sitemap.xml

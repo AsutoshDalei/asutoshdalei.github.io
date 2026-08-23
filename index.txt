@@ -1,0 +1,79 @@
+ASUTOSH DALEI - PLAIN-TEXT PROFILE
+==================================
+
+Location: Washington, DC, United States
+Email: asutoshdalei@gmail.com
+Website: https://asutoshdalei.github.io/AsutoshDalei/
+LinkedIn: https://www.linkedin.com/in/asutosh-dalei2212/
+GitHub: https://github.com/AsutoshDalei
+Google Scholar: https://scholar.google.com/citations?user=ZTEw6iQAAAAJ&hl=en
+Résumé PDF: https://asutoshdalei.github.io/AsutoshDalei/ASUTOSH_DALEI_RESUME.pdf
+
+SUMMARY
+-------
+Data Scientist and AI Engineer with 4+ years of industry experience in machine
+learning, generative AI, retrieval-augmented generation (RAG), and predictive
+modeling. Master's degree in Data Science from the University of Maryland,
+College Park. Most recently built enterprise-scale multimodal RAG pipelines and
+agentic AI workflows at Nokia as a Machine Learning Engineering Intern
+(2025-2026). Previously Data Scientist at Maruti Suzuki's R&D Division.
+
+EXPERIENCE
+----------
+Machine Learning Engineering Intern, Nokia (June 2025 - June 2026)
+  - Built a scalable "Knowledge Layer" retrieval system for Nokia product
+    documentation spanning vector, relational, object, and graph databases.
+  - Benchmarked embedding models (Nomic, BGE M3, Embedding Gemma) and improved
+    relevance with the Qwen3 Reranker.
+  - Built a multimodal RAG pipeline creating a joint vector space with Jina
+    Embeddings V4 and OpenAI CLIP to query tables and figures.
+  - Deployed containerized microservices (Docker, Kafka, PostgreSQL, MinIO,
+    Neo4j, OpenSearch) on Google Cloud Platform.
+
+Data Scientist, Maruti Suzuki R&D Division, Bengaluru, India (Jan 2022 - Aug 2024)
+  - Implemented a RAG-based conversational AI assistant, reducing manual
+    searches by 60%.
+  - Developed an LSTM battery-health prediction algorithm for connected cars,
+    achieving 98% system accuracy across 7,000+ vehicles.
+  - Optimized ML training processes, saving $48,000 per year.
+
+EDUCATION
+---------
+M.S. Data Science, University of Maryland, College Park.
+
+RESEARCH
+--------
+- Patent application 202411040338: System & Method of Predicting Health Status
+  of Batteries in Vehicles (LSTM on sensor-based telematics data).
+- "Molecular Signatures and Machine Learning driven Stress Biomarkers for
+  Rainbow Trout Aquaculture and Climate Adaptation," Nature Scientific Reports,
+  https://doi.org/10.1038/s41598-025-30120-3
+- "Survey On Technical Advancements and Renovations in Federated Learning,"
+  Malaysian Journal of Computer Science, https://doi.org/10.22452/mjcs.vol37no1.1
+
+PROJECTS
+--------
+- PayLLM-gateway: Agentic utility bill payment application using open-source
+  LLM architectures (Llama, LangGraph, FAISS).
+  https://github.com/AsutoshDalei/PayLLM-gateway
+- dataGenome: Genomic data analysis in aquaculture; predictive models for
+  gender identification and stress factors in rainbow trout.
+  https://github.com/AsutoshDalei/dataGenome
+
+SKILLS
+------
+Languages: Python, Go, SQL.
+AI/ML: PyTorch, TensorFlow, Keras, scikit-learn, HuggingFace, Jina Embeddings,
+OpenAI CLIP, LSTM/CNN/RNN/transformer models, large language models (LLM),
+retrieval-augmented generation (RAG), multimodal embeddings, semantic search,
+LangGraph, FAISS, Ollama.
+Data infrastructure: OpenSearch, Neo4j, PostgreSQL, MongoDB, MinIO, Kafka,
+vector databases, knowledge graphs.
+Cloud and MLOps: Google Cloud Platform (GCP), AWS, Docker, Kubernetes,
+microservices, MLOps, CUDA.
+
+OPEN TO
+-------
+Full-time data science / machine learning / AI engineering roles and
+collaborations on AI-focused environmental modeling and sustainability
+initiatives.

@@ -1,0 +1,20 @@
+# Asutosh Dalei
+
+> Personal portfolio of Asutosh Dalei, a data scientist and AI engineer based in Washington, DC, United States, with over four years of industry experience across retrieval-augmented generation (RAG), LLM applications, machine learning, and predictive modeling.
+
+This is the domain root for asutoshdalei.github.io. The full portfolio lives at [asutoshdalei.github.io/AsutoshDalei/](https://asutoshdalei.github.io/AsutoshDalei/), which has its own detailed [llms.txt](https://asutoshdalei.github.io/AsutoshDalei/llms.txt).
+
+## Site map
+
+- [Portfolio home](https://asutoshdalei.github.io/AsutoshDalei/): résumé summary, work experience, research, hobbies, and contact form
+- [About](https://asutoshdalei.github.io/AsutoshDalei/about.html): detailed biography and background
+- [Contact](https://asutoshdalei.github.io/AsutoshDalei/contact.html): email and social channels
+- [Privacy](https://asutoshdalei.github.io/AsutoshDalei/privacy.html): analytics and form-data disclosures
+- [Résumé PDF](https://asutoshdalei.github.io/AsutoshDalei/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
+- [Agent guide](https://asutoshdalei.github.io/AsutoshDalei/llms.txt): when-to-use guidance and markdown versions of every page
+
+## Contact
+
+- Email: [asutoshdalei@gmail.com](mailto:asutoshdalei@gmail.com)
+- LinkedIn: [linkedin.com/in/asutosh-dalei2212](https://www.linkedin.com/in/asutosh-dalei2212/)
+- GitHub: [github.com/AsutoshDalei](https://github.com/AsutoshDalei)
