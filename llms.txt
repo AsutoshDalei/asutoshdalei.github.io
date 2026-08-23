@@ -39,15 +39,18 @@ Not appropriate for: product APIs, programmatic integrations, or transactions �
 
 ## Developer resources
 
-- [GitHub profile](https://github.com/AsutoshDalei): open-source projects, code repositories, and contributions
+- [GitHub profile](https://github.com/AsutoshDalei): open-source projects, code repositories, and contributions — browse repos for data science, ML engineering, and AI tooling
 - [PayLLM-gateway](https://github.com/AsutoshDalei/PayLLM-gateway): agentic utility bill payment application using Llama, LangGraph, and FAISS — demonstrates RAG-based conversational AI with open-source LLM architectures
 - [dataGenome](https://github.com/AsutoshDalei/dataGenome): genomic data analysis in aquaculture with predictive ML models — gender identification and stress-factor prediction in rainbow trout
+- [All repositories](https://github.com/AsutoshDalei?tab=repositories): complete list of open-source projects by Asutosh Dalei
+- [Commits](https://github.com/AsutoshDalei?tab=overview): recent activity and contribution history on GitHub
 - [Google Scholar](https://scholar.google.com/citations?user=ZTEw6iQAAAAJ&hl=en): full publication list with citation metrics
 - [Nature Scientific Reports publication](https://doi.org/10.1038/s41598-025-30120-3): Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation
 - [Malaysian Journal of Computer Science publication](https://doi.org/10.22452/mjcs.vol37no1.1): Survey On Technical Advancements and Renovations in Federated Learning
 - [Patent application](https://asutoshdalei.github.io/index.txt): System & Method of Predicting Health Status of Batteries in Vehicles (202411040338)
 - [Resume PDF](https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
 - [Plain-text profile](https://asutoshdalei.github.io/index.txt): ATS-optimized plain-text résumé for automated screening systems
+- [.well-known/mcp](https://asutoshdalei.github.io/.well-known/mcp): MCP discovery manifest (documentation only — no live endpoint)
 
 ## Contact
 

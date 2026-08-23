@@ -130,7 +130,7 @@ def check_offline():
             )
             required = {"about.html", "contact.html", "privacy.html",
                         "llms.txt", "index.md", "about.md", "contact.md",
-                        "privacy.md", "404.html", "index.txt", ".well-known/mcp"}
+                        "privacy.md", "404.html", "404.md", "index.txt", ".well-known/mcp"}
             sitemap_slugs = {u.replace(BASE, "") for u in locs}
             missing = [r for r in required if r not in sitemap_slugs]
             record("sitemap lists all machine-readable files", not missing,
@@ -160,6 +160,9 @@ def check_offline():
     record("index.html og:type", bool(re.search(r'<meta\s+property="og:type"', idx, re.I)))
     record("index.html has H1 with name",
            bool(inner_tag_text(idx, r"<h1[^>]*>(.*?)</h1>")))
+    h1_text = inner_tag_text(idx, r"<h1[^>]*>(.*?)</h1>") or ""
+    record("index.html H1 starts with name", h1_text.startswith("Asutosh Dalei"),
+           h1_text)
 
     parsed = check_json_ld(idx)
     record("JSON-LD parses", len(parsed) >= 3, f"{len(parsed)} blocks")
@@ -215,6 +218,9 @@ def check_offline():
     nf = read("404.html")
     ok = bool(nf) and "llms.txt" in nf and "sitemap" in nf and BASE in nf
     record("404.html recovery links (home, llms.txt, sitemap)", ok)
+    nf_md = read("404.md")
+    record("404.md markdown twin exists", bool(nf_md) and nf_md.lstrip().startswith("#"))
+    record("404.html has visible markdown body", bool(nf) and "agent-md" in nf)
 
     try:
         mcp = json.loads(read(".well-known/mcp") or "")
@@ -233,6 +239,11 @@ def check_offline():
            "Nature Scientific Reports" in (lt or "")
            and "Malaysian Journal" in (lt or "")
            and "Google Scholar" in (lt or ""))
+    record("llms.txt developer resources includes all repos",
+           "All repositories" in (lt or "")
+           and "PayLLM" in (lt or "")
+           and "dataGenome" in (lt or "")
+           and ".well-known/mcp" in (lt or ""))
 
 
 def check_live(base_url):
@@ -247,6 +258,7 @@ def check_live(base_url):
     text = visible_text(html)
     h1 = inner_tag_text(html, r"<h1[^>]*>(.*?)</h1>") or ""
     record("homepage H1 present with name", "Asutosh Dalei" in h1)
+    record("homepage H1 starts with name", h1.startswith("Asutosh Dalei"), h1)
     record("homepage 500+ chars without JS", len(text) >= 500, f"{len(text)} chars")
     record("homepage canonical + JSON-LD served",
            'rel="canonical"' in html and "application/ld+json" in html)
@@ -257,7 +269,7 @@ def check_live(base_url):
     record("Organization JSON-LD served with contactPoint+address", org_ok)
 
     machine = ["robots.txt", "sitemap.xml", "llms.txt", ".well-known/mcp", "index.md",
-               "index.txt", "404.html", "about.md", "contact.md", "privacy.md"]
+               "index.txt", "404.html", "404.md", "about.md", "contact.md", "privacy.md"]
     for f in machine:
         code, _, _ = http_fetch(home + f)
         record(f"/{f} reachable", code == 200, f"HTTP {code}")
@@ -271,6 +283,10 @@ def check_live(base_url):
     recover = "llms.txt" in body or "sitemap" in body
     record("nonexistent path returns real 404", code == 404, f"HTTP {code}")
     record("404 body offers recovery links", recover)
+    record("404 body has markdown content for agents", "agent-md" in body)
+
+    _, _, nf_body = http_fetch(home + "404.md")
+    record("/404.md reachable", nf_body.startswith("#"), f"HTTP {code}")
 
     if home + "sitemap.xml":
         code, _, sm_body = http_fetch(home + "sitemap.xml")

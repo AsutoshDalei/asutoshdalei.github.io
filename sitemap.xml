@@ -61,6 +61,12 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://asutoshdalei.github.io/404.md</loc>
+		<lastmod>2026-08-23</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://asutoshdalei.github.io/index.txt</loc>
 		<lastmod>2026-08-23</lastmod>
 		<changefreq>monthly</changefreq>
