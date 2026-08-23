@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Verify agentic-readiness requirements for the AsutoshDalei portfolio site.
+"""Verify agentic-readiness requirements for asutoshdalei.github.io.
 
 Modes:
   python3 scripts/verify.py                       Offline checks against repo files
   python3 scripts/verify.py --live                Live checks against production URL
-  python3 scripts/verify.py --live --include-root Also assert domain-root reachability
-                                                  (passes only after user-site deploy)
 
 Stdlib only. Exit code 0 = all checks passed, 1 = at least one failure.
 """
@@ -23,8 +21,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-BASE = "https://asutoshdalei.github.io/AsutoshDalei/"
-ROOT = "https://asutoshdalei.github.io/"
+BASE = "https://asutoshdalei.github.io/"
 AGENT_UAS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
     "GPTBot/1.0",
@@ -106,9 +103,18 @@ def http_fetch(url, ua=AGENT_UAS[0]):
         return 0, {}, ""
 
 
-def check_offline():
-    base_re = re.compile(r"https://asutoshdalei\.github\.io/(?!AsutoshDalei)")
+def check_json_ld(html):
+    blocks = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S)
+    parsed = []
+    for block in blocks:
+        try:
+            parsed.append(json.loads(block))
+        except json.JSONDecodeError:
+            pass
+    return parsed
 
+
+def check_offline():
     sm = read("sitemap.xml")
     locs = []
     if sm:
@@ -118,22 +124,30 @@ def check_offline():
             locs = [e.text.strip() for e in root.findall(".//sm:loc", ns) or root.findall(".//loc")]
             bad = [u for u in locs if "#" in u or not u.startswith(BASE)]
             record(
-                "sitemap.xml valid, project-scoped URLs",
+                "sitemap.xml valid, root-scoped URLs",
                 len(locs) > 0 and not bad,
                 f"{len(locs)} URLs" + (f"; bad: {bad}" if bad else ""),
             )
-            required = {"about.html", "contact.html", "privacy.html"}
-            missing = [r for r in required if not any(u.endswith(r) for u in locs)]
-            record("sitemap lists trust pages", not missing, f"missing: {missing}" if missing else "")
+            required = {"about.html", "contact.html", "privacy.html",
+                        "llms.txt", "index.md", "about.md", "contact.md",
+                        "privacy.md", "404.html", "index.txt", ".well-known/mcp"}
+            sitemap_slugs = {u.replace(BASE, "") for u in locs}
+            missing = [r for r in required if r not in sitemap_slugs]
+            record("sitemap lists all machine-readable files", not missing,
+                   f"missing: {missing}" if missing else f"{len(locs)} URLs")
         except ET.ParseError as e:
-            record("sitemap.xml valid, project-scoped URLs", False, f"XML parse error: {e}")
+            record("sitemap.xml valid, root-scoped URLs", False, f"XML parse error: {e}")
     else:
-        record("sitemap.xml valid, project-scoped URLs", False, "file missing")
+        record("sitemap.xml valid, root-scoped URLs", False, "file missing")
 
     rb = read("robots.txt")
     record(
-        "robots.txt Sitemap points at project sitemap",
+        "robots.txt Sitemap points at root sitemap",
         bool(rb) and f"Sitemap: {BASE}sitemap.xml" in rb,
+    )
+    record(
+        "robots.txt has Accept note about .md URLs",
+        bool(rb) and "replace .html with .md" in rb,
     )
 
     idx = read("index.html") or ""
@@ -142,21 +156,22 @@ def check_offline():
     record("index.html rel=canonical", bool(canon) and canon.group(1) == BASE,
            canon.group(1) if canon else "missing")
     og_img = re.search(r'<meta\s+property="og:image"\s+content="(https://[^"]+)"', idx, re.I)
-    record("index.html og:image absolute URL", bool(og_img))
+    record("index.html og:image absolute URL", bool(og_img) and "AsutoshDalei" not in (og_img.group(1) if og_img else ""))
     record("index.html og:type", bool(re.search(r'<meta\s+property="og:type"', idx, re.I)))
+    record("index.html has H1 with name",
+           bool(inner_tag_text(idx, r"<h1[^>]*>(.*?)</h1>")))
 
-    lds = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', idx, re.S)
-    parsed, parse_err = [], None
-    for block in lds:
-        try:
-            parsed.append(json.loads(block))
-        except json.JSONDecodeError as e:
-            parse_err = e
+    parsed = check_json_ld(idx)
+    record("JSON-LD parses", len(parsed) >= 3, f"{len(parsed)} blocks")
+
     person = next((d for d in parsed if d.get("@type") == "Person"), None)
+    org = next((d for d in parsed if d.get("@type") == "Organization"), None)
     svc = next((d for d in parsed if d.get("@type") == "ProfessionalService"), None)
-    record("JSON-LD parses", bool(lds) and parse_err is None, str(parse_err) if parse_err else f"{len(parsed)} blocks")
+
     record("Person schema has url+image",
            bool(person) and bool(person.get("url")) and bool(person.get("image")))
+    record("Organization schema has contactPoint+address",
+           bool(org) and bool(org.get("contactPoint")) and bool(org.get("address")))
     record("ProfessionalService schema has contactPoint+address+url",
            bool(svc) and bool(svc.get("contactPoint")) and bool(svc.get("address")) and bool(svc.get("url")))
 
@@ -172,6 +187,7 @@ def check_offline():
             bool(pc) and pc.group(1) == f"{BASE}{page}"
             and bool(h1) and len(text) >= 500
             and bool(re.search(r'<html[^>]*\blang="en"', html, re.I))
+            and "AsutoshDalei" not in pc.group(1)
         )
         record(f"{page}: exists, canonical, H1, 500+ chars", ok,
                f"text={len(text)} chars")
@@ -193,6 +209,8 @@ def check_offline():
     )
     record("llms.txt: title, summary, when-to-use, valid links", ok,
            f"{len(links)} links")
+    record("llms.txt: .md URLs mentioned for content negotiation",
+           "`.md`" in lt and "replace" in lt.lower())
 
     nf = read("404.html")
     ok = bool(nf) and "llms.txt" in nf and "sitemap" in nf and BASE in nf
@@ -211,22 +229,13 @@ def check_offline():
     it = read("index.txt")
     record("index.txt is plain text", bool(it) and "<!DOCTYPE" not in it and "<html" not in it)
 
-    stale = []
-    for p in sorted(REPO.iterdir()):
-        if p.is_file() and p.suffix.lower() in (".html", ".md", ".txt", ".xml"):
-            hits = [m for m in base_re.finditer(p.read_text(encoding="utf-8", errors="replace"))]
-            if hits:
-                stale.append(p.name)
-    record("no stale domain-root URLs outside user-site/", not stale,
-           f"stale: {stale}" if stale else "")
-
-    us = REPO / "user-site"
-    needed = ["index.html", "robots.txt", "sitemap.xml", "llms.txt", "README.md"]
-    missing = [f for f in needed if not (us / f).exists()]
-    record("user-site package complete", not missing, f"missing: {missing}" if missing else "")
+    record("llms.txt developer resources includes publications",
+           "Nature Scientific Reports" in (lt or "")
+           and "Malaysian Journal" in (lt or "")
+           and "Google Scholar" in (lt or ""))
 
 
-def check_live(base_url, include_root=False):
+def check_live(base_url):
     home = base_url if base_url.endswith("/") else base_url + "/"
     rand = "".join(random.choices(string.ascii_lowercase, k=16))
 
@@ -236,13 +245,19 @@ def check_live(base_url, include_root=False):
 
     _, _, html = http_fetch(home)
     text = visible_text(html)
-    record("homepage H1 present", "Asutosh Dalei" in (inner_tag_text(html, r"<h1[^>]*>(.*?)</h1>") or ""))
+    h1 = inner_tag_text(html, r"<h1[^>]*>(.*?)</h1>") or ""
+    record("homepage H1 present with name", "Asutosh Dalei" in h1)
     record("homepage 500+ chars without JS", len(text) >= 500, f"{len(text)} chars")
     record("homepage canonical + JSON-LD served",
            'rel="canonical"' in html and "application/ld+json" in html)
 
+    parsed = check_json_ld(html)
+    org = next((d for d in parsed if d.get("@type") == "Organization"), None)
+    org_ok = bool(org) and bool(org.get("contactPoint")) and bool(org.get("address"))
+    record("Organization JSON-LD served with contactPoint+address", org_ok)
+
     machine = ["robots.txt", "sitemap.xml", "llms.txt", ".well-known/mcp", "index.md",
-               "index.txt", "404.html"]
+               "index.txt", "404.html", "about.md", "contact.md", "privacy.md"]
     for f in machine:
         code, _, _ = http_fetch(home + f)
         record(f"/{f} reachable", code == 200, f"HTTP {code}")
@@ -272,15 +287,13 @@ def check_live(base_url, include_root=False):
         else:
             record("live sitemap parses", False, f"HTTP {code}")
 
-    if include_root:
-        for path in ("/", "/robots.txt", "/sitemap.xml", "/llms.txt"):
-            code, _, _ = http_fetch(ROOT + path.lstrip("/"))
-            record(f"domain root {path} reachable", code == 200, f"HTTP {code}")
-        code, _, body = http_fetch(ROOT + f"not-a-real-path-{rand}")
-        record("domain root nonexistent path returns 404", code == 404, f"HTTP {code}")
-    else:
-        record("domain-root checks skipped (use --include-root after user-site deploy)",
-               True, warn=False, skip=True)
+    _, _, rb_body = http_fetch(home + "robots.txt")
+    record("robots.txt Accept note about .md URLs",
+           "replace .html with .md" in rb_body)
+
+    lt_code, _, lt_body = http_fetch(home + "llms.txt")
+    record("llms.txt: .md URLs for content negotiation",
+           lt_code == 200 and "`.md`" in lt_body and "replace" in lt_body.lower())
 
 
 def main():
@@ -288,8 +301,6 @@ def main():
     ap.add_argument("--live", nargs="?", const=BASE, metavar="URL",
                     help="run live checks against URL (default production)")
     ap.add_argument("--offline", action="store_true", help="run offline file checks")
-    ap.add_argument("--include-root", action="store_true",
-                    help="with --live: also assert domain-root reachability")
     args = ap.parse_args()
 
     if args.live is None and not args.offline:
@@ -298,7 +309,7 @@ def main():
     if args.offline:
         check_offline()
     if args.live is not None:
-        check_live(args.live, include_root=args.include_root)
+        check_live(args.live)
 
     width = max(len(n) for _, n, _ in results)
     fails = warns = passes = 0

@@ -1,7 +1,7 @@
 # Asutosh Dalei — Portfolio
 > Personal portfolio of Asutosh Dalei, a data scientist and AI engineer based in Washington, DC, United States, with over four years of industry experience across retrieval-augmented generation (RAG), LLM applications, machine learning, and predictive modeling. Most recently built enterprise-scale multimodal RAG pipelines and agentic AI workflows at Nokia (2025–2026). Previously Data Scientist at Maruti Suzuki's R&D Division (2022–2024). Holds a Master's degree in Data Science from the University of Maryland, College Park. Author of peer-reviewed machine learning research and applicant on a predictive-maintenance patent.
 
-This is a static personal portfolio site. Every HTML page below has a Markdown twin at the same path with a `.md` extension — prefer those for token-efficient retrieval.
+This is a static personal portfolio site. Every HTML page below has a Markdown twin at the same path — replace `.html` with `.md` in the URL to fetch it directly. Because GitHub Pages is static hosting, the site does not support `Accept: text/markdown` content negotiation; use the `.md` URLs directly for token-efficient retrieval.
 
 ## When to use this site
 
@@ -16,32 +16,38 @@ Not appropriate for: product APIs, programmatic integrations, or transactions �
 
 ## Site map
 
-- [Home](https://asutoshdalei.github.io/AsutoshDalei/): portfolio overview with résumé summary, work experience, research, hobbies, and contact form
-- [About](https://asutoshdalei.github.io/AsutoshDalei/about.html): detailed biography, experience timeline, skills, and research summary
-- [Contact](https://asutoshdalei.github.io/AsutoshDalei/contact.html): email address, social channels, and inquiry guidance
-- [Privacy](https://asutoshdalei.github.io/AsutoshDalei/privacy.html): what analytics and form data this site collects and why
-- [Résumé PDF](https://asutoshdalei.github.io/AsutoshDalei/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
-- [404 page](https://asutoshdalei.github.io/AsutoshDalei/404.html): recovery links for broken paths
+- [Home](https://asutoshdalei.github.io/): portfolio overview with résumé summary, work experience, research, hobbies, and contact form
+- [About](https://asutoshdalei.github.io/about.html): detailed biography, experience timeline, skills, and research summary
+- [Contact](https://asutoshdalei.github.io/contact.html): email address, social channels, and inquiry guidance
+- [Privacy](https://asutoshdalei.github.io/privacy.html): what analytics and form data this site collects and why
+- [Résumé PDF](https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
+- [404 page](https://asutoshdalei.github.io/404.html): recovery links for broken paths
 
 ## Markdown versions
 
-- [index.md](https://asutoshdalei.github.io/AsutoshDalei/index.md): full site content as Markdown
-- [about.md](https://asutoshdalei.github.io/AsutoshDalei/about.md)
-- [contact.md](https://asutoshdalei.github.io/AsutoshDalei/contact.md)
-- [privacy.md](https://asutoshdalei.github.io/AsutoshDalei/privacy.md)
+- [index.md](https://asutoshdalei.github.io/index.md): full site content as Markdown
+- [about.md](https://asutoshdalei.github.io/about.md)
+- [contact.md](https://asutoshdalei.github.io/contact.md)
+- [privacy.md](https://asutoshdalei.github.io/privacy.md)
 
 ## Machine-readable files
 
-- [llms.txt](https://asutoshdalei.github.io/AsutoshDalei/llms.txt): this file
-- [sitemap.xml](https://asutoshdalei.github.io/AsutoshDalei/sitemap.xml): all indexable URLs with lastmod dates
-- [.well-known/mcp](https://asutoshdalei.github.io/AsutoshDalei/.well-known/mcp): MCP discovery manifest (documentation only — no live endpoint yet)
-- [index.txt](https://asutoshdalei.github.io/AsutoshDalei/index.txt): plain-text profile
+- [llms.txt](https://asutoshdalei.github.io/llms.txt): this file
+- [sitemap.xml](https://asutoshdalei.github.io/sitemap.xml): all indexable URLs with lastmod dates
+- [.well-known/mcp](https://asutoshdalei.github.io/.well-known/mcp): MCP discovery manifest (documentation only — no live endpoint yet)
+- [index.txt](https://asutoshdalei.github.io/index.txt): plain-text profile
 
 ## Developer resources
 
-- [GitHub profile](https://github.com/AsutoshDalei): open-source projects and code
-- [PayLLM-gateway](https://github.com/AsutoshDalei/PayLLM-gateway): agentic utility bill payment application using Llama, LangGraph, and FAISS
-- [dataGenome](https://github.com/AsutoshDalei/dataGenome): genomic data analysis in aquaculture with predictive ML models
+- [GitHub profile](https://github.com/AsutoshDalei): open-source projects, code repositories, and contributions
+- [PayLLM-gateway](https://github.com/AsutoshDalei/PayLLM-gateway): agentic utility bill payment application using Llama, LangGraph, and FAISS — demonstrates RAG-based conversational AI with open-source LLM architectures
+- [dataGenome](https://github.com/AsutoshDalei/dataGenome): genomic data analysis in aquaculture with predictive ML models — gender identification and stress-factor prediction in rainbow trout
+- [Google Scholar](https://scholar.google.com/citations?user=ZTEw6iQAAAAJ&hl=en): full publication list with citation metrics
+- [Nature Scientific Reports publication](https://doi.org/10.1038/s41598-025-30120-3): Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation
+- [Malaysian Journal of Computer Science publication](https://doi.org/10.22452/mjcs.vol37no1.1): Survey On Technical Advancements and Renovations in Federated Learning
+- [Patent application](https://asutoshdalei.github.io/index.txt): System & Method of Predicting Health Status of Batteries in Vehicles (202411040338)
+- [Resume PDF](https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf): full up-to-date résumé
+- [Plain-text profile](https://asutoshdalei.github.io/index.txt): ATS-optimized plain-text résumé for automated screening systems
 
 ## Contact
 

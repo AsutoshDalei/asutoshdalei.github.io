@@ -6,7 +6,7 @@ A data scientist based in Washington DC, United States with 4+ years of industry
 
 Asutosh Dalei holds a Master's degree in Data Science from the University of Maryland, College Park. He most recently worked at Nokia as a Machine Learning Engineering Intern (June 2025 – June 2026), building enterprise-scale multimodal RAG pipelines and agentic AI workflows for Nokia's product documentation. With over four years of industry experience in data science, he previously worked as a Data Scientist at Maruti Suzuki's R&D Division in Bengaluru, India, contributing to projects that enhanced user experiences and operational efficiency, including conversational AI assistants and an AI-driven automobile health prediction system.
 
-Full résumé PDF: https://asutoshdalei.github.io/AsutoshDalei/ASUTOSH_DALEI_RESUME.pdf
+Full résumé PDF: https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf
 
 ## Work experience
 

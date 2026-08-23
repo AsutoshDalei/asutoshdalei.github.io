@@ -13,4 +13,4 @@ Full-time roles in data science, machine learning engineering, AI engineering, a
 
 ## Message form
 
-The [contact form on the home page](https://asutoshdalei.github.io/AsutoshDalei/#contact) posts your name, email, and message through Formspree straight to his inbox. See the [privacy statement](https://asutoshdalei.github.io/AsutoshDalei/privacy.md) for how that data is handled. If forms aren't your thing, a plain email works just as well.
+The [contact form on the home page](https://asutoshdalei.github.io/#contact) posts your name, email, and message through Formspree straight to his inbox. See the [privacy statement](https://asutoshdalei.github.io/privacy.md) for how that data is handled. If forms aren't your thing, a plain email works just as well.
