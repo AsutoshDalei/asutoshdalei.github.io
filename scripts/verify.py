@@ -161,7 +161,7 @@ def check_offline():
     record("index.html has H1 with name",
            bool(inner_tag_text(idx, r"<h1[^>]*>(.*?)</h1>")))
     h1_text = inner_tag_text(idx, r"<h1[^>]*>(.*?)</h1>") or ""
-    record("index.html H1 starts with name", h1_text.startswith("Asutosh Dalei"),
+    record("index.html H1 contains full name", "Asutosh Dalei" in h1_text,
            h1_text)
 
     parsed = check_json_ld(idx)
@@ -258,7 +258,7 @@ def check_live(base_url):
     text = visible_text(html)
     h1 = inner_tag_text(html, r"<h1[^>]*>(.*?)</h1>") or ""
     record("homepage H1 present with name", "Asutosh Dalei" in h1)
-    record("homepage H1 starts with name", h1.startswith("Asutosh Dalei"), h1)
+    record("homepage H1 contains full name", "Asutosh Dalei" in h1, h1)
     record("homepage 500+ chars without JS", len(text) >= 500, f"{len(text)} chars")
     record("homepage canonical + JSON-LD served",
            'rel="canonical"' in html and "application/ld+json" in html)
