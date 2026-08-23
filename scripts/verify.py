@@ -285,8 +285,8 @@ def check_live(base_url):
     record("404 body offers recovery links", recover)
     record("404 body has markdown content for agents", "agent-md" in body)
 
-    _, _, nf_body = http_fetch(home + "404.md")
-    record("/404.md reachable", nf_body.startswith("#"), f"HTTP {code}")
+    code404md, _, nf_body = http_fetch(home + "404.md")
+    record("/404.md reachable", code404md == 200 and nf_body.startswith("#"), f"HTTP {code404md}")
 
     if home + "sitemap.xml":
         code, _, sm_body = http_fetch(home + "sitemap.xml")
