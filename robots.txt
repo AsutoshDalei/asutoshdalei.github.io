@@ -1,9 +1,11 @@
 # Machine-readable entry points for this site:
-#   llms.txt    - agent-oriented site guide (https://asutoshdalei.github.io/llms.txt)
-#   sitemap.xml - indexable URLs
+#   llms.txt        - agent-oriented site guide (https://asutoshdalei.github.io/llms.txt)
+#   sitemap.xml     - indexable URLs
+#   developers.html - developer resources & docs index (https://asutoshdalei.github.io/developers.html)
 #
-# Note: GitHub Pages cannot inject Vary: Accept headers.
-# To fetch the Markdown version of any page, replace .html with .md in the URL,
+# Note: GitHub Pages cannot inject Vary: Accept headers and does not negotiate
+# on Accept: text/markdown. To fetch the Markdown version of any page,
+# replace .html with .md in the URL (.md files are served as text/markdown),
 # or use the .md links listed in llms.txt.
 User-agent: *
 Allow: /

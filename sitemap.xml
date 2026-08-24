@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://asutoshdalei.github.io/</loc>
-		<lastmod>2026-08-23</lastmod>
+		<lastmod>2026-08-24</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>1.0</priority>
 	</url>
@@ -25,8 +25,14 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://asutoshdalei.github.io/developers.html</loc>
+		<lastmod>2026-08-24</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://asutoshdalei.github.io/llms.txt</loc>
-		<lastmod>2026-08-23</lastmod>
+		<lastmod>2026-08-24</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -55,14 +61,26 @@
 		<priority>0.4</priority>
 	</url>
 	<url>
+		<loc>https://asutoshdalei.github.io/developers.md</loc>
+		<lastmod>2026-08-24</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://asutoshdalei.github.io/docs/chat-security.md</loc>
+		<lastmod>2026-08-24</lastmod>
+		<changefreq>yearly</changefreq>
+		<priority>0.4</priority>
+	</url>
+	<url>
 		<loc>https://asutoshdalei.github.io/404.html</loc>
-		<lastmod>2026-08-23</lastmod>
+		<lastmod>2026-08-24</lastmod>
 		<changefreq>never</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://asutoshdalei.github.io/404.md</loc>
-		<lastmod>2026-08-23</lastmod>
+		<lastmod>2026-08-24</lastmod>
 		<changefreq>never</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -74,7 +92,7 @@
 	</url>
 	<url>
 		<loc>https://asutoshdalei.github.io/.well-known/mcp</loc>
-		<lastmod>2026-08-23</lastmod>
+		<lastmod>2026-08-24</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.3</priority>
 	</url>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Developer Resources &amp; Docs Index | Asutosh Dalei</title>
+	<meta name="description" content="Developer resources and docs index for asutoshdalei.github.io: llms.txt agent guide, sitemap.xml, robots.txt, MCP discovery manifest, Markdown page twins, plain-text résumé, and chat security notes. No public API, no OpenAPI spec, no webhooks." />
+	<link rel="canonical" href="https://asutoshdalei.github.io/developers.html" />
+	<link rel="alternate" type="text/markdown" href="https://asutoshdalei.github.io/developers.md" />
+	<style>
+		:root { color-scheme: dark; }
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			background: #242830;
+			color: #eaeaea;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			line-height: 1.7;
+			padding: 3rem 1.5rem;
+		}
+		main { max-width: 46rem; margin: 0 auto; }
+		h1 { font-size: 2rem; font-weight: 300; letter-spacing: 0.02em; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.75rem; }
+		h2 { font-size: 1.25rem; font-weight: 400; margin-top: 2.5rem; }
+		a { color: #7fc2e0; text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		code { background: rgba(255,255,255,0.08); border-radius: 3px; padding: 0.1rem 0.35rem; font-size: 0.9em; }
+		ul { padding-left: 1.25rem; }
+		li { margin: 0.35rem 0; }
+		footer { margin-top: 3rem; font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+	</style>
+</head>
+<body>
+<main>
+	<h1>Asutosh Dalei &mdash; Developer Resources &amp; Docs Index</h1>
+	<p>Every machine-readable file and developer resource published by this site, at predictable URLs. This is the docs index for <a href="https://asutoshdalei.github.io/">asutoshdalei.github.io</a>, the personal portfolio of Asutosh Dalei.</p>
+
+	<h2>Machine-readable files</h2>
+	<ul>
+		<li><a href="https://asutoshdalei.github.io/llms.txt">llms.txt</a> &mdash; agent-oriented site guide with when-to-use guidance and a full site map</li>
+		<li><a href="https://asutoshdalei.github.io/sitemap.xml">sitemap.xml</a> &mdash; all indexable URLs with lastmod dates</li>
+		<li><a href="https://asutoshdalei.github.io/robots.txt">robots.txt</a> &mdash; crawl rules plus pointers to machine-readable entry points</li>
+		<li><a href="https://asutoshdalei.github.io/.well-known/mcp">.well-known/mcp</a> &mdash; MCP discovery manifest (documentation only; no live server)</li>
+	</ul>
+
+	<h2>Markdown versions of every page</h2>
+	<p>Each HTML page has a Markdown twin at the same path with an <code>.md</code> extension, served as <code>text/markdown</code>. GitHub Pages does not negotiate on the <code>Accept</code> header and cannot emit <code>Vary: Accept</code>; to get Markdown, request the <code>.md</code> URL directly.</p>
+	<ul>
+		<li><a href="https://asutoshdalei.github.io/index.md">index.md</a> &mdash; full home-page content as Markdown</li>
+		<li><a href="https://asutoshdalei.github.io/about.md">about.md</a></li>
+		<li><a href="https://asutoshdalei.github.io/contact.md">contact.md</a></li>
+		<li><a href="https://asutoshdalei.github.io/privacy.md">privacy.md</a></li>
+		<li><a href="https://asutoshdalei.github.io/404.md">404.md</a> &mdash; recovery links served for missing paths</li>
+		<li><a href="https://asutoshdalei.github.io/index.txt">index.txt</a> &mdash; plain-text r&eacute;sum&eacute; profile</li>
+	</ul>
+
+	<h2>API status</h2>
+	<p>This is a static personal portfolio hosted on GitHub Pages. There is no public REST API, so there are no API docs and no OpenAPI spec. There are no webhooks. The <a href="https://asutoshdalei.github.io/.well-known/mcp">MCP manifest</a> declares zero capabilities and exists only for discovery documentation.</p>
+
+	<h2>Security notes</h2>
+	<ul>
+		<li><a href="https://asutoshdalei.github.io/docs/chat-security.md">docs/chat-security.md</a> &mdash; how the (currently paused) browser chat feature handled API keys and abuse controls</li>
+	</ul>
+	<p>Security contact: <a href="mailto:asutoshdalei@gmail.com">asutoshdalei@gmail.com</a>.</p>
+
+	<h2>Structured data</h2>
+	<p>All HTML pages embed JSON-LD (<code>application/ld+json</code>) Person, Organization, and ProfessionalService schemas, plus Open Graph and Twitter Card metadata.</p>
+
+	<footer>&copy; Asutosh Dalei &middot; <a href="https://asutoshdalei.github.io/">Home</a></footer>
+</main>
+</body>
+</html>

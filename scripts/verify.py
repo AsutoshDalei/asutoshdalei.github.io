@@ -91,14 +91,14 @@ def http_fetch(url, ua=AGENT_UAS[0]):
     req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept": "*/*"})
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            return resp.status, dict(resp.headers), resp.read().decode("utf-8", errors="replace")
+            return resp.status, {k.lower(): v for k, v in resp.headers.items()}, resp.read().decode("utf-8", errors="replace")
     except urllib.error.HTTPError as e:
         body = ""
         try:
             body = e.read().decode("utf-8", errors="replace")
         except Exception:
             pass
-        return e.code, dict(e.headers or {}), body
+        return e.code, {k.lower(): v for k, v in (e.headers or {}).items()}, body
     except (urllib.error.URLError, OSError, TimeoutError):
         return 0, {}, ""
 
@@ -129,8 +129,10 @@ def check_offline():
                 f"{len(locs)} URLs" + (f"; bad: {bad}" if bad else ""),
             )
             required = {"about.html", "contact.html", "privacy.html",
-                        "llms.txt", "index.md", "about.md", "contact.md",
-                        "privacy.md", "404.html", "404.md", "index.txt", ".well-known/mcp"}
+                        "developers.html", "llms.txt", "index.md", "about.md",
+                        "contact.md", "privacy.md", "developers.md",
+                        "docs/chat-security.md", "404.html", "404.md",
+                        "index.txt", ".well-known/mcp"}
             sitemap_slugs = {u.replace(BASE, "") for u in locs}
             missing = [r for r in required if r not in sitemap_slugs]
             record("sitemap lists all machine-readable files", not missing,
@@ -195,10 +197,41 @@ def check_offline():
         record(f"{page}: exists, canonical, H1, 500+ chars", ok,
                f"text={len(text)} chars")
 
-    for page in ("index.md", "about.md", "contact.md", "privacy.md"):
+    for page in ("index.md", "about.md", "contact.md", "privacy.md", "developers.md"):
         md = read(page)
         ok = bool(md) and md.lstrip().startswith("#") and len(md) >= 500
         record(f"{page}: markdown twin, 500+ chars", ok, f"{len(md or '')} chars")
+
+    for page in ("index.html", "about.html", "contact.html", "privacy.html",
+                 "developers.html", "404.html"):
+        html = read(page) or ""
+        m = re.search(
+            r'<link\s+rel="alternate"\s+type="text/markdown"\s+href="([^"]+)"', html, re.I)
+        expected = f"{BASE}{page[:-5]}.md"
+        record(f"{page}: <link rel=alternate type=text/markdown> twin",
+               bool(m) and m.group(1) == expected,
+               m.group(1) if m else "missing")
+
+    dev = read("developers.html")
+    if not dev:
+        record("developers.html: docs index with name-titled H1 and resource links",
+               False, "file missing")
+    else:
+        h1_dev = inner_tag_text(dev, r"<h1[^>]*>(.*?)</h1>") or ""
+        title_dev = inner_tag_text(dev, r"<title>(.*?)</title>") or ""
+        pc_dev = re.search(r'<link\s+rel="canonical"\s+href="([^"]+)"', dev, re.I)
+        needed_links = ["llms.txt", "sitemap.xml", "robots.txt", ".well-known/mcp"]
+        ok = (
+            "Asutosh Dalei" in h1_dev and "Developer Resources" in h1_dev
+            and "Asutosh Dalei" in title_dev and "Developer Resources" in title_dev
+            and bool(pc_dev) and pc_dev.group(1) == f"{BASE}developers.html"
+            and all(l in dev for l in needed_links)
+            and len(visible_text(dev)) >= 500
+        )
+        record("developers.html: docs index with name-titled H1 and resource links",
+               ok, f"text={len(visible_text(dev))} chars")
+    record("developers.html: states API status (no public REST API / OpenAPI spec)",
+           bool(dev) and "no public REST API" in dev and "OpenAPI spec" in dev)
 
     lt = read("llms.txt")
     lines = (lt or "").splitlines()
@@ -218,8 +251,12 @@ def check_offline():
     nf = read("404.html")
     ok = bool(nf) and "llms.txt" in nf and "sitemap" in nf and BASE in nf
     record("404.html recovery links (home, llms.txt, sitemap)", ok)
+    record("404.html points agents at docs index (developers.html)",
+           bool(nf) and "developers.html" in nf)
     nf_md = read("404.md")
     record("404.md markdown twin exists", bool(nf_md) and nf_md.lstrip().startswith("#"))
+    record("404.md points agents at docs index (developers.html)",
+           bool(nf_md) and "developers.html" in nf_md)
     record("404.html has visible markdown body", bool(nf) and "agent-md" in nf)
 
     try:
@@ -229,6 +266,10 @@ def check_offline():
                and bool(mcp.get("documentation"))
                and bool(mcp.get("security", {}).get("security_contact")),
                "docs-only endpoints={}".format(bool(mcp.get("endpoints"))))
+        doc_url = mcp.get("documentation", "")
+        record(".well-known/mcp documentation URL is live site llms.txt",
+               doc_url == f"{BASE}llms.txt" and "/AsutoshDalei/" not in doc_url,
+               doc_url)
     except json.JSONDecodeError as e:
         record(".well-known/mcp manifest", False, f"invalid JSON: {e}")
 
@@ -244,6 +285,12 @@ def check_offline():
            and "PayLLM" in (lt or "")
            and "dataGenome" in (lt or "")
            and ".well-known/mcp" in (lt or ""))
+    record("llms.txt lists docs index and states API status by name",
+           "developers.html" in (lt or "")
+           and "API docs" in (lt or "")
+           and "OpenAPI spec" in (lt or ""))
+    record("llms.txt links chat security notes",
+           bool(lt) and "docs/chat-security.md" in lt)
 
 
 def check_live(base_url):
@@ -269,7 +316,9 @@ def check_live(base_url):
     record("Organization JSON-LD served with contactPoint+address", org_ok)
 
     machine = ["robots.txt", "sitemap.xml", "llms.txt", ".well-known/mcp", "index.md",
-               "index.txt", "404.html", "404.md", "about.md", "contact.md", "privacy.md"]
+               "index.txt", "404.html", "404.md", "about.md", "contact.md",
+               "privacy.md", "developers.html", "developers.md",
+               "docs/chat-security.md"]
     for f in machine:
         code, _, _ = http_fetch(home + f)
         record(f"/{f} reachable", code == 200, f"HTTP {code}")
@@ -279,14 +328,47 @@ def check_live(base_url):
         record(f"/{page} 200 with 500+ chars", code == 200 and len(visible_text(body)) >= 500,
                f"HTTP {code}, {len(visible_text(body))} chars")
 
+    code, headers, dev_body = http_fetch(home + "developers.html")
+    record("/developers.html serves docs index with name-titled H1",
+           code == 200 and "Asutosh Dalei" in (inner_tag_text(dev_body, r"<h1[^>]*>(.*?)</h1>") or "")
+           and "Developer Resources" in dev_body,
+           f"HTTP {code}")
+    for f in ("index.html", "about.html", "contact.html", "privacy.html",
+              "developers.html"):
+        slug = "index" if f == "index.html" else f[:-5]
+        _, _, body = http_fetch(home + f)
+        alt = re.search(
+            r'<link\s+rel="alternate"\s+type="text/markdown"\s+href="([^"]+)"', body, re.I)
+        expected = f"{BASE}{slug}.md"
+        record(f"/{f} declares markdown twin via rel=alternate",
+               bool(alt) and alt.group(1) == expected,
+               alt.group(1) if alt else "missing")
+    for md_file in ("index.md", "about.md", "contact.md", "privacy.md",
+                    "developers.md", "404.md"):
+        _, h, _ = http_fetch(home + md_file)
+        record(f"/{md_file} served as text/markdown",
+               "text/markdown" in h.get("content-type", ""),
+               h.get("content-type", "missing header"))
+
     code, _, body = http_fetch(home + f"not-a-real-path-{rand}")
     recover = "llms.txt" in body or "sitemap" in body
+    has_md_links = "- [" in body and "](https://" in body
     record("nonexistent path returns real 404", code == 404, f"HTTP {code}")
     record("404 body offers recovery links", recover)
-    record("404 body has markdown content for agents", "agent-md" in body)
+    record("404 body contains markdown links and docs index reference",
+           has_md_links and "developers.html" in body)
 
     code404md, _, nf_body = http_fetch(home + "404.md")
     record("/404.md reachable", code404md == 200 and nf_body.startswith("#"), f"HTTP {code404md}")
+
+    code_mcp, _, mcp_body = http_fetch(home + ".well-known/mcp")
+    try:
+        doc_url = json.loads(mcp_body).get("documentation", "")
+        record("live .well-known/mcp documentation URL points at site llms.txt",
+               code_mcp == 200 and doc_url == f"{BASE}llms.txt", doc_url)
+    except json.JSONDecodeError:
+        record("live .well-known/mcp documentation URL points at site llms.txt",
+               False, "invalid JSON")
 
     if home + "sitemap.xml":
         code, _, sm_body = http_fetch(home + "sitemap.xml")
@@ -310,6 +392,9 @@ def check_live(base_url):
     lt_code, _, lt_body = http_fetch(home + "llms.txt")
     record("llms.txt: .md URLs for content negotiation",
            lt_code == 200 and "`.md`" in lt_body and "replace" in lt_body.lower())
+    record("llms.txt live: lists docs index and API status by name",
+           lt_code == 200 and "developers.html" in lt_body
+           and "OpenAPI spec" in lt_body)
 
 
 def main():
