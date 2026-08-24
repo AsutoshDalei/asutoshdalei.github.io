@@ -1,7 +1,7 @@
 /*
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Asutosh Dalei — portfolio stylesheet (no-JS fallback).
+	Based on "Dimension" by HTML5 UP, CCA 3.0 license.
+	Keeps every article visible and in flow when JavaScript is unavailable.
 */
 
 /* BG */
@@ -13,9 +13,6 @@
 /* Header */
 
 	body.is-preload #header {
-		-moz-filter: none;
-		-webkit-filter: none;
-		-ms-filter: none;
 		filter: none;
 	}
 
@@ -25,13 +22,26 @@
 
 		body.is-preload #header .content .inner {
 			max-height: none;
-			padding: 3rem 2rem;
+			padding: 2.75rem 2.5rem;
+			opacity: 1;
+		}
+
+		body.is-preload #footer {
 			opacity: 1;
 		}
 
 /* Main */
 
+	#main {
+		width: 100%;
+	}
+
 	#main article {
 		opacity: 1;
-		margin: 4rem 0 0 0;
+		transform: none;
+		margin: 3rem 0 0 0;
+	}
+
+	#main article .close {
+		display: none;
 	}

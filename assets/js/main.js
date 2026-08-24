@@ -56,7 +56,8 @@
 
 	// Nav.
 		var $nav = $header.children('nav'),
-			$nav_li = $nav.find('li');
+			$nav_li = $nav.find('li'),
+			$nav_links = $nav.find('a');
 
 		// Add "middle" alignment classes if we're dealing with an even number of items.
 			if ($nav_li.length % 2 == 0) {
@@ -65,6 +66,19 @@
 				$nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 
 			}
+
+		// Mark the nav link matching the visible article with aria-current.
+			$main._markNav = function(id) {
+
+				$nav_links.removeClass('is-current').removeAttr('aria-current');
+
+				if (id)
+					$nav_links
+						.filter('[href="#' + id + '"]')
+						.addClass('is-current')
+						.attr('aria-current', 'true');
+
+			};
 
 	// Main.
 		var	delay = 325,
@@ -87,6 +101,9 @@
 				// No such article? Bail.
 					if ($article.length == 0)
 						return;
+
+				// Mark the corresponding nav item as current.
+					$main._markNav(id);
 
 				// Handle lock.
 
@@ -215,6 +232,9 @@
 					if (!$body.hasClass('is-article-visible'))
 						return;
 
+				// Clear the nav's current marker.
+					$main._markNav(null);
+
 				// Add state?
 					if (typeof addState != 'undefined'
 					&&	addState === true)
@@ -302,7 +322,7 @@
 				var $this = $(this);
 
 				// Close.
-					$('<div class="close">Close</div>')
+					$('<button type="button" class="close" aria-label="Close panel">Close</button>')
 						.appendTo($this)
 						.on('click', function() {
 							location.hash = '';

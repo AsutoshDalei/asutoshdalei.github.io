@@ -1,6 +1,6 @@
 # Asutosh Dalei — Data Scientist & AI Engineer
 
-A data scientist based in Washington DC, United States with 4+ years of industry experience.
+A data scientist based in Washington DC, United States with 4+ years of industry experience. He builds retrieval-augmented AI systems — enterprise multimodal RAG pipelines and agentic workflows at Nokia, and predictive models that shipped on 7,000+ connected cars at Maruti Suzuki.
 
 ## Résumé summary
 

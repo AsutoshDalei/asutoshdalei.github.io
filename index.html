@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
+	Built on "Dimension" by HTML5 UP (html5up.net | @ajlkn)
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="en">
@@ -21,7 +20,8 @@
 
 	<title>Asutosh Dalei's Portfolio</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#0f1317" />
 
 	<!-- SEO Meta Tags -->
 	<meta name="description" content="Asutosh Dalei - Data Scientist and AI Engineer with 4 years of industry experience. Currently an AI Intern at Nokia, building RAG systems. Previously Data Scientist at Maruti Suzuki. Master's student at University of Maryland. Expertise in machine learning, deep learning, RAG, LLM, multimodal AI, and predictive modeling." />
@@ -46,6 +46,11 @@
 	<meta name="twitter:title" content="Asutosh Dalei's Portfolio - Data Scientist & AI Engineer" />
 	<meta name="twitter:description" content="Data Scientist and AI Engineer with 4+ years of industry experience. Currently AI Intern at Nokia, building RAG systems." />
 	<meta name="twitter:image" content="https://asutoshdalei.github.io/images/pic01.webp" />
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,600&display=swap" />
 
 	<!-- JSON-LD Structured Data -->
 	<script type="application/ld+json">
@@ -205,7 +210,6 @@
 	</script>
 
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<!--<link rel="stylesheet" href="assets/css/chat.css" />-->
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -213,23 +217,32 @@
 
 <body class="is-preload">
 
+	<a class="skip-link" href="#work">Skip to content</a>
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Header -->
+		<!-- Header / Hero -->
 		<header id="header">
-			<div class="logo">
-				<span class="fa fa-code fa-2xl" aria-hidden="true"></span>
+			<div class="logo" aria-hidden="true">
+				<span>AD</span>
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1>I'm Asutosh Dalei</h1>
-				<p>A data scientist based out in Washington DC, United States with 4+ years of industry experience.</p>
+					<span class="eyebrow">Data Scientist &amp; AI Engineer &mdash; Washington, DC</span>
+					<h1>Asutosh Dalei</h1>
+					<p class="lede">I build retrieval-augmented AI systems &mdash; enterprise multimodal RAG
+						pipelines and agentic workflows at Nokia, and predictive models that shipped on
+						7,000+ connected cars at Maruti Suzuki.</p>
+					<div class="cta-row">
+						<a href="#work" class="button primary">View selected work <span class="arrow">&rarr;</span></a>
+						<a href="https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf" target="_blank" rel="noopener noreferrer" class="button"><span class="icon solid fa-file-alt" aria-hidden="true"></span>R&eacute;sum&eacute; PDF</a>
+					</div>
 				</div>
 			</div>
-			<nav>
+			<nav aria-label="Primary">
 				<ul>
-					<li><a href="#intro">Résumé</a></li>
+					<li><a href="#intro">R&eacute;sum&eacute;</a></li>
 					<li><a href="#work">Work</a></li>
 					<li><a href="#research">Research</a></li>
 					<li><a href="#hobbies">Hobbies</a></li>
@@ -243,154 +256,173 @@
 
 			<!-- Intro -->
 			<article id="intro">
-				<h2 class="major">Résumé</h2>
-				<span class="image main"><img src="images/pic01.webp" alt="Asutosh Dalei - Data Scientist and AI Engineer Portfolio" /></span>
-			<p>I'm Asutosh Dalei and I graduate with a Master's in Data Science from the University of Maryland,
-				College Park.</p>
-			<p>I was also working at Nokia as an AI intern, where I was building enterprise scale multimodal RAG
-				pipelines and agentic AI workflows for Nokia's product documentations.</p>
-			<p>With over 4 years of industry experience in data science, I previously worked as a Data Scientist
-				at Maruti Suzuki's R&D Division in Bengaluru, India. There, I contributed to projects that enhanced
-				user experiences and operational efficiency, including developing conversational AI assistants and an
-				AI-driven automobile health prediction system.</p>
+				<h2 class="major">R&eacute;sum&eacute;</h2>
+				<span class="image main"><img src="images/pic01.webp" width="960" height="320" alt="Banner with the name Asutosh Dalei and a portrait photograph" /></span>
+				<p>I'm Asutosh Dalei, and I graduated with a Master's in Data Science from the University of
+					Maryland, College Park.</p>
+				<p>I was working at Nokia as an AI intern, where I built enterprise-scale multimodal RAG
+					pipelines and agentic AI workflows for Nokia's product documentation.</p>
+				<p>With over four years of industry experience in data science, I previously worked as a Data
+					Scientist at Maruti Suzuki's R&amp;D Division in Bengaluru, India. There, I contributed to
+					projects that enhanced user experiences and operational efficiency, including developing
+					conversational AI assistants and an AI-driven automobile health prediction system.</p>
 				<p>By the way, check out my <a href="https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf" target="_blank"
-						rel="noopener noreferrer">résumé!</a></p>
+						rel="noopener noreferrer">r&eacute;sum&eacute;!</a></p>
 			</article>
 
 			<!-- Work -->
 			<article id="work">
 				<h2 class="major">Work</h2>
-				<span class="image main"><img src="images/pic02.webp" alt="Data Science and Machine Learning Work Portfolio" /></span>
-				<p>I am skilled in data science with industry experience in machine learning, generative AI, and
-					predictive modeling. My experience includes:</p>
+				<p class="lede">Data science across machine learning, generative AI, and predictive modeling
+					&mdash; from research prototypes to production systems.</p>
 
-				<h3>Work Experience</h3>
-				<ul>
-					<li><strong>Machine Learning Intern at Nokia - Sunnyvale, California</strong>
-						<span><br><em>June 2025 – June 2026</em></span>
-						<ul>
-							<li>Built a scalable retrieval system (“Knowledge Layer”) for Nokia product documentation,
-								integrating vector, relational, object, and graph databases as a foundation for future
-								RAG solutions.</li>
-							<li>Evaluated custom embedding models (Nomic, BGE M3) and selected <strong>Embedding
-									Gemma</strong> for superior semantic retrieval. Improved relevance with
-								<strong>Qwen3 Reranker-8B</strong>.
-							</li>
-							<li>Built a Multimodal RAG pipeline creating a <strong>joint vector space</strong> using
-								<strong>Jina Embeddings V4 and OpenAI CLIP</strong> to query tables and figures.
-							</li>
-							<li>Deployed the system as containerized microservices (Docker, Kafka, PostgreSQL, MinIO,
-								Neo4j, OpenSearch) on <strong>Google Cloud Platform</strong> with multimodal
-								support for tables and images.</li>
-						</ul>
-					</li>
+				<span class="eyebrow">Experience</span>
 
-					<li><strong>Data Scientist at Maruti Suzuki (R&D Division) - Bengaluru, India</strong>
-						<span><br><em>January 2022 - August 2024</em></span>
-						<ul>
-							<li>Implemented a RAG-based conversational AI assistant to address a user painpoint,
-								reducing manual searches by 60%.</li>
-							<li>Developed an LSTM algorithm for lead-acid battery health prediction in connected ICE
-								cars, achieving 98% system accuracy.</li>
-							<li>Optimized ML training processes, resulting in $48,000/year cost savings.</li>
-						</ul>
-					</li>
-				</ul>
+				<div class="role">
+					<header>
+						<h3>Machine Learning Engineering Intern</h3>
+						<span class="meta">Jun 2025 &ndash; Jun 2026</span>
+					</header>
+					<span class="org">Nokia &mdash; Sunnyvale, California</span>
+					<ul class="points">
+						<li>Built a scalable retrieval system (&ldquo;Knowledge Layer&rdquo;) for Nokia product
+							documentation, integrating vector, relational, object, and graph databases as a
+							foundation for future RAG solutions.</li>
+						<li>Evaluated custom embedding models (Nomic, BGE&nbsp;M3) and selected <strong>Embedding
+							Gemma</strong> for superior semantic retrieval; improved relevance further with the
+							<strong>Qwen3 Reranker-8B</strong>.</li>
+						<li>Built a multimodal RAG pipeline creating a <strong>joint vector space</strong> with
+							<strong>Jina Embeddings V4 and OpenAI CLIP</strong> to query tables and figures.</li>
+						<li>Deployed the system as containerized microservices (Docker, Kafka, PostgreSQL, MinIO,
+							Neo4j, OpenSearch) on <strong>Google Cloud Platform</strong>.</li>
+					</ul>
+				</div>
 
-				<h3>Past Projects</h3>
-				<ul>
-					<li><strong><a href="https://github.com/AsutoshDalei/PayLLM-gateway" target="_blank">Agentic Utility
-								Bill Payment Application</a></strong>: Creating agentic conversational AI assistants to
-						enhance utility bill payments using Open-Source LLM architectures: Llama, LangGraph, FAISS.</li>
-					<li><strong>Lead-Acid Battery Health Prediction</strong>: Designed and deployed an AI over-the-air
-						system to identify battery failure for 7000+ connected cars. Secured a patent for the same.</li>
-					<li><strong><a href="https://github.com/AsutoshDalei/dataGenome" target="_blank">Genomic Data
-								Analysis in Aquaculture (Research Assistant, University of Maryland)</a></strong>:
-						Developed predictive models for gender identification and stress factor prediction in rainbow
-						trout, aiming for scalable solutions in aquaculture management.</li>
-				</ul>
-				<p>I believe my work demonstrates my ability to apply latest technologies to solve real-world problems,
-					across various industries.</p>
+				<div class="role">
+					<header>
+						<h3>Data Scientist</h3>
+						<span class="meta">Jan 2022 &ndash; Aug 2024</span>
+					</header>
+					<span class="org">Maruti Suzuki, R&amp;D Division &mdash; Bengaluru, India</span>
+					<ul class="points">
+						<li>Implemented a RAG-based conversational AI assistant to address a user pain point,
+							reducing manual searches by <strong>60%</strong>.</li>
+						<li>Developed an LSTM algorithm for lead-acid battery health prediction in connected ICE
+							cars, achieving <strong>98% system accuracy</strong> across <strong>7,000+
+							vehicles</strong>.</li>
+						<li>Optimized ML training processes, resulting in <strong>$48,000/year</strong> cost
+							savings.</li>
+					</ul>
+				</div>
+
+				<span class="eyebrow">Past projects</span>
+
+				<div class="card">
+					<h3><a href="https://github.com/AsutoshDalei/PayLLM-gateway" target="_blank" rel="noopener noreferrer">Agentic Utility Bill Payment Application</a></h3>
+					<p>Agentic conversational AI assistants for utility bill payments, built on open-source LLM
+						architectures.</p>
+					<ul class="tags">
+						<li>Llama</li>
+						<li>LangGraph</li>
+						<li>FAISS</li>
+					</ul>
+				</div>
+
+				<div class="card">
+					<h3>Lead-Acid Battery Health Prediction</h3>
+					<p>Designed and deployed an AI over-the-air system identifying battery failure for 7,000+
+						connected cars. Secured a patent for the same.</p>
+					<ul class="tags">
+						<li>LSTM</li>
+						<li>Telematics</li>
+						<li>Patented</li>
+					</ul>
+					<a class="card-link" href="#research">Read the patent <span class="arrow">&rarr;</span></a>
+				</div>
+
+				<div class="card">
+					<h3><a href="https://github.com/AsutoshDalei/dataGenome" target="_blank" rel="noopener noreferrer">Genomic Data Analysis in Aquaculture</a></h3>
+					<p>Predictive models for gender identification and stress-factor prediction in rainbow trout
+						&mdash; research toward scalable aquaculture management. (Research Assistant, University
+						of Maryland.)</p>
+					<ul class="tags">
+						<li>Python</li>
+						<li>Genomics</li>
+						<li>Predictive ML</li>
+					</ul>
+				</div>
+
+				<p>I believe my work demonstrates my ability to apply the latest technologies to solve real-world
+					problems, across various industries.</p>
 			</article>
-
-
 
 			<!-- Research -->
 			<article id="research">
 				<h2 class="major">Research</h2>
-				<span class="image main"><img src="images/pic003.jpg" alt="Research Publications and Patents in Machine Learning and AI" /></span>
-				<p>My research work aims to connect theoretical innovation with practical applications.</p>
+				<p class="lede">Connecting theoretical innovation with practical application.</p>
 
-				<h3>Patents</h3>
-				<ul>
-					<li>
-						<strong>System & Method of Predicting Health Status of Batteries in Vehicles</strong><br>
-						<span><em>Patent Application Number: 202411040338</em></span>
-						<p>Developed and patented a novel technology designed to accurately identify the remaining
-							useful life of lead-acid batteries in automobiles. By leveraging sensor-based telematics
-							data and sophisticated LSTM deep neural networks, this system enables predictive
-							maintenance, significantly reducing unexpected vehicle failures.</p>
-					</li>
-				</ul>
+				<span class="eyebrow">Patents</span>
 
-				<h3>Publications</h3>
-				<ul>
-					<li>
-						<strong><a href="https://doi.org/10.1038/s41598-025-30120-3" target="_blank">Molecular
-								Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture
-								and Climate Adaptation</a></strong><br>
-						<span><em>Nature Scientific Reports</em></span>
-						<p>In this co-authored study, we explored the intersection of genomic analysis and machine
-							learning. We utilized advanced predictive models to analyze genomic datasets,
-							identifying key genetic markers for gender and environmental stress in rainbow trout. This
-							work provides data-driven insights for sustainable aquaculture management and climate
-							adaptation strategies.</p>
-					</li>
-					<li>
-						<strong><a href="https://doi.org/10.22452/mjcs.vol37no1.1" target="_blank">Survey On Technical
-								Advancements and Renovations in Federated Learning</a></strong><br>
-						<span><em>Malaysian Journal of Computer Science</em></span>
-						<p>Co-authored a comprehensive survey examining the landscape of Federated Learning (FL). This
-							research investigates FL implementations across diverse and critical domains, including
-							Blockchain technology, Unmanned Aerial Vehicles (UAVs), IoT ecosystems, healthcare
-							infrastructure, and cloud computing. The paper highlights technical advancements and the
-							growing role of FL in decentralized AI.</p>
-					</li>
-				</ul>
+				<div class="card">
+					<span class="meta">Patent application 202411040338</span>
+					<h3>System &amp; Method of Predicting Health Status of Batteries in Vehicles</h3>
+					<p>Developed and patented a technology that identifies the remaining useful life of lead-acid
+						batteries in automobiles. By leveraging sensor-based telematics data and LSTM deep neural
+						networks, the system enables predictive maintenance, significantly reducing unexpected
+						vehicle failures.</p>
+				</div>
+
+				<span class="eyebrow">Publications</span>
+
+				<div class="card">
+					<span class="meta">Nature Scientific Reports &middot; 2025</span>
+					<h3><a href="https://doi.org/10.1038/s41598-025-30120-3" target="_blank" rel="noopener noreferrer">Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation</a></h3>
+					<p>A co-authored study at the intersection of genomic analysis and machine learning:
+						predictive models analyzed genomic datasets to identify key genetic markers for gender and
+						environmental stress in rainbow trout, providing data-driven insights for sustainable
+						aquaculture management and climate adaptation.</p>
+					<a class="card-link" href="https://doi.org/10.1038/s41598-025-30120-3" target="_blank" rel="noopener noreferrer">doi.org/10.1038/s41598-025-30120-3 <span class="arrow">&rarr;</span></a>
+				</div>
+
+				<div class="card">
+					<span class="meta">Malaysian Journal of Computer Science</span>
+					<h3><a href="https://doi.org/10.22452/mjcs.vol37no1.1" target="_blank" rel="noopener noreferrer">Survey On Technical Advancements and Renovations in Federated Learning</a></h3>
+					<p>A comprehensive survey of the Federated Learning landscape, examining implementations
+						across blockchain, UAVs, IoT ecosystems, healthcare infrastructure, and cloud computing
+						&mdash; and the growing role of FL in decentralized AI.</p>
+					<a class="card-link" href="https://doi.org/10.22452/mjcs.vol37no1.1" target="_blank" rel="noopener noreferrer">doi.org/10.22452/mjcs.vol37no1.1 <span class="arrow">&rarr;</span></a>
+				</div>
 			</article>
 
-			<!-- About -->
+			<!-- Hobbies -->
 			<article id="hobbies">
 				<h2 class="major">Hobbies</h2>
-				<span class="image main"><img src="images/pic03.webp" alt="Personal Hobbies and Interests" /></span>
+				<span class="image main"><img src="images/pic03.webp" width="960" height="320" loading="lazy" alt="Collage of Asutosh's paintings and photographs: mountains, birds, blossoms, and landscapes" /></span>
 				<p>In addition to my professional work in data science, I enjoy activities that let me explore my
-					creative and physical side. I love <strong>painting</strong> and <strong>photography</strong>. Both
-					help me capture the world’s beauty.</p>
-				<p>When I'm not working, I also enjoy playing <strong>badminton</strong> and running.<br> These hobbies
-					allow my personal growth apart from work.</br></p>
+					creative and physical side. I love <strong>painting</strong> and <strong>photography</strong>
+					&mdash; both help me capture the world's beauty.</p>
+				<p>When I'm not working, I also enjoy playing <strong>badminton</strong> and running. These hobbies
+					support my personal growth apart from work.</p>
 			</article>
-
-
-
 
 			<!-- Contact -->
 			<article id="contact">
 				<h2 class="major">Contact</h2>
-				<p>Glad to have you here and feel free to get in touch!</p>
+				<p class="lede">Glad to have you here &mdash; feel free to get in touch!</p>
 
 				<form method="post" action="https://formspree.io/f/xvgkbgbo">
 					<div class="fields">
 						<div class="field half">
 							<label for="name">Name</label>
-							<input type="text" name="name" id="name" required />
+							<input type="text" name="name" id="name" autocomplete="name" required />
 						</div>
 						<div class="field half">
 							<label for="email">Email</label>
-							<input type="email" name="email" id="email" required />
+							<input type="email" name="email" id="email" autocomplete="email" required />
 						</div>
 						<div class="field">
 							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="4" required></textarea>
+							<textarea name="message" id="message" rows="5" required></textarea>
 						</div>
 					</div>
 					<ul class="actions">
@@ -402,27 +434,29 @@
 					<li><a href="https://www.linkedin.com/in/asutosh-dalei2212/" class="icon brands fa-linkedin"><span
 								class="label">LinkedIn</span></a></li>
 					<li><a href="https://github.com/AsutoshDalei" class="icon brands fa-github"><span
-								class="label">Github</span></a></li>
+								class="label">GitHub</span></a></li>
 					<li><a href="https://scholar.google.com/citations?user=ZTEw6iQAAAAJ&hl=en" class="icon brands fa-google"><span
-								class="label">Google Sites</span></a></li>
+								class="label">Google Scholar</span></a></li>
 					<li><a href="mailto:asutoshdalei@gmail.com" class="icon solid fa-envelope"><span
 								class="label">Email</span></a></li>
 				</ul>
 			</article>
 
-
-
 		</div>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; AsutoshDalei. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			<ul class="footer-nav">
+				<li><a href="about.html">About</a></li>
+				<li><a href="privacy.html">Privacy</a></li>
+			</ul>
+			<p class="copyright">&copy; Asutosh Dalei. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 		</footer>
 
 	</div>
 
-		<!-- BG -->
-	<div id="bg"></div>
+	<!-- BG -->
+	<div id="bg" aria-hidden="true"></div>
 
 	<!-- Hidden Semantic Content for AI Crawlers and ATS Systems -->
 	<div class="sr-only">
@@ -454,50 +488,12 @@
 		<p>Seeking positions as Data Scientist, Machine Learning Engineer, ML Engineer, AI Engineer, Research Scientist, Deep Learning Engineer, NLP Engineer, Computer Vision Engineer, AI Research Engineer, MLOps Engineer, Applied Scientist, Senior Data Scientist, Principal Data Scientist, Staff Machine Learning Engineer, AI Architect, or RAG Engineer with 4+ years of industry experience, graduate degree in data science, and proven track record in production AI systems.</p>
 	</div>
 
-	<!--
-	<div id="chat-widget">
-		<div id="chat-panel">
-			<div id="chat-messages"></div>
-			<div id="chat-counter"></div>
-			<div id="chat-input-row">
-				<input
-					type="text"
-					id="chat-input"
-					placeholder="Ask something about Asutosh…"
-					maxlength="300"
-					autocomplete="off"
-				/>
-				<button id="chat-send-btn" aria-label="Send message">
-					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-						<polyline points="9,4 13,8 9,12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-					</svg>
-				</button>
-			</div>
-		</div>
-		<div id="chat-bar" role="button" aria-expanded="false" aria-controls="chat-panel" tabindex="0">
-			<span id="chat-bar-label">
-				<svg class="chat-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<path d="M1 1h12v9H8l-3 3V10H1V1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
-				</svg>
-				Ask me about Asutosh
-			</span>
-			<button id="chat-toggle-btn" aria-label="Toggle chat">
-				<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<polyline points="2,8 6,4 10,8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</button>
-		</div>
-	</div>
-	-->
-
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<!--<script src="assets/js/chat.js"></script>-->
 
 </body>
 
