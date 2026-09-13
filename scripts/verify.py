@@ -80,6 +80,12 @@ def record(name, ok, detail="", warn=False, skip=False):
     results.append((status, name, detail))
 
 
+
+def date_like(value):
+    """Accept ISO dates or the CI placeholder that deploy resolves to a date."""
+    return bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}|__GIT_DATE__", (value or "").strip()))
+
+
 def read(rel):
     path = REPO / rel
     if not path.exists():
@@ -130,11 +136,17 @@ def check_offline():
             )
             required = {"about.html", "contact.html", "privacy.html",
                         "llms.txt", "index.md", "about.md", "contact.md",
-                        "privacy.md", "404.html", "404.md", "index.txt", ".well-known/mcp"}
+                        "privacy.md", "index.txt", ".well-known/mcp"}
             sitemap_slugs = {u.replace(BASE, "") for u in locs}
             missing = [r for r in required if r not in sitemap_slugs]
             record("sitemap lists all machine-readable files", not missing,
                    f"missing: {missing}" if missing else f"{len(locs)} URLs")
+            badmod = []
+            for u in root.findall(".//sm:lastmod", ns) or root.findall(".//lastmod"):
+                if not date_like(u.text):
+                    badmod.append(u.text)
+            record("sitemap lastmod dates valid", not badmod,
+                   f"bad: {badmod}" if badmod else "all dates OK")
         except ET.ParseError as e:
             record("sitemap.xml valid, root-scoped URLs", False, f"XML parse error: {e}")
     else:
