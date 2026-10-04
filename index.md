@@ -1,6 +1,6 @@
 # Asutosh Dalei — Data Scientist & AI Engineer
 
-A data scientist based in Washington DC, United States with 4+ years of industry experience.
+A data scientist based in Washington, DC, United States with 4+ years of industry experience.
 
 ## Résumé summary
 
@@ -38,7 +38,7 @@ Full résumé PDF: https://asutoshdalei.github.io/ASUTOSH_DALEI_RESUME.pdf
 ### Publications
 
 - [Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation](https://doi.org/10.1038/s41598-025-30120-3) — *Nature Scientific Reports*. Genomic analysis meets machine learning: advanced predictive models identify genetic markers for gender and environmental stress in rainbow trout.
-- [Survey On Technical Advancements and Renovations in Federated Learning](https://doi.org/10.22452/mjcs.vol37no1.1) — *Malaysian Journal of Computer Science*. A survey of federated learning implementations across blockchain, UAVs, IoT, healthcare, and cloud computing.
+- [Survey On Technical Advancements and Renovations in Federated Learning](https://doi.org/10.22452/mjcs.vol37no1.2) — *Malaysian Journal of Computer Science*. A survey of federated learning implementations across blockchain, UAVs, IoT, healthcare, and cloud computing.
 
 ## Skills
 

@@ -49,7 +49,7 @@ RESEARCH
   Rainbow Trout Aquaculture and Climate Adaptation," Nature Scientific Reports,
   https://doi.org/10.1038/s41598-025-30120-3
 - "Survey On Technical Advancements and Renovations in Federated Learning,"
-  Malaysian Journal of Computer Science, https://doi.org/10.22452/mjcs.vol37no1.1
+  Malaysian Journal of Computer Science, https://doi.org/10.22452/mjcs.vol37no1.2
 
 PROJECTS
 --------

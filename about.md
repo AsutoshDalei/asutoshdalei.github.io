@@ -10,7 +10,7 @@ Prior to Nokia, he was a Data Scientist at Maruti Suzuki's R&D Division in Benga
 
 ## Research
 
-His research connects theoretical innovation with practical application. He is the applicant behind patent application 202411040338, "System & Method of Predicting Health Status of Batteries in Vehicles," which applies LSTM deep neural networks to sensor-based telematics data for predictive maintenance. He co-authored "Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation" in Nature Scientific Reports (https://doi.org/10.1038/s41598-025-30120-3) and a survey on federated learning advancements in the Malaysian Journal of Computer Science (https://doi.org/10.22452/mjcs.vol37no1.1).
+His research connects theoretical innovation with practical application. He is the applicant behind patent application 202411040338, "System & Method of Predicting Health Status of Batteries in Vehicles," which applies LSTM deep neural networks to sensor-based telematics data for predictive maintenance. He co-authored "Molecular Signatures and Machine Learning driven Stress Biomarkers for Rainbow Trout Aquaculture and Climate Adaptation" in Nature Scientific Reports (https://doi.org/10.1038/s41598-025-30120-3) and a survey on federated learning advancements in the Malaysian Journal of Computer Science (https://doi.org/10.22452/mjcs.vol37no1.2).
 
 ## Skills
 
